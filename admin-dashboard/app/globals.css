@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #33a7ff;
+    --danger: #f83b3b;
+    --safe: #22c55e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0f172a;
+    color: #f1f5f9;
+    min-height: 100vh;
+}
+
+.mapboxgl-map {
+    font-family: 'Inter', sans-serif;
+}
+
+.mapboxgl-ctrl-logo {
+    display: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 3px;
+}
+
+.glass {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary {
+    @apply px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-200;
+}
+
+.btn-danger {
+    @apply px-4 py-2 bg-gradient-to-r from-danger-500 to-danger-600 text-white font-medium rounded-lg hover:from-danger-600 hover:to-danger-700 transition-all duration-200;
+}
+
+.card {
+    @apply bg-dark-100/80 border border-white/10 rounded-xl p-4;
+}
+
+.spinner {
+    @apply w-5 h-5 border-2 border-white/20 border-t-primary-500 rounded-full animate-spin;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(248, 59, 59, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(248, 59, 59, 0);
+    }
+}
+
+.sos-alert {
+    animation: pulse-glow 1s infinite;
+}

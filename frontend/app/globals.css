@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #33a7ff;
+  --danger: #f83b3b;
+  --safe: #22c55e;
+  --dark-100: #1e293b;
+  --dark-200: #0f172a;
+  --dark-300: #020617;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--dark-200);
+  color: #f1f5f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Mapbox overrides */
+.mapboxgl-map {
+  font-family: 'Inter', sans-serif;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-attrib {
+  opacity: 0.5;
+  font-size: 10px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-200);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark-100);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl
+         hover:from-primary-600 hover:to-primary-700 transition-all duration-200 
+         shadow-lg hover:shadow-primary-500/25 active:scale-95;
+}
+
+.btn-danger {
+  @apply px-6 py-3 bg-gradient-to-r from-danger-500 to-danger-600 text-white font-semibold rounded-xl
+         hover:from-danger-600 hover:to-danger-700 transition-all duration-200 
+         shadow-lg hover:shadow-danger-500/25 active:scale-95;
+}
+
+.btn-outline {
+  @apply px-6 py-3 border-2 border-primary-500 text-primary-400 font-semibold rounded-xl
+         hover:bg-primary-500/10 transition-all duration-200 active:scale-95;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full px-4 py-3 bg-dark-100/50 border border-white/10 rounded-xl text-white 
+         placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 
+         focus:ring-primary-500/20 transition-all duration-200;
+}
+
+/* Card styles */
+.card {
+  @apply bg-dark-100/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-glass;
+}
+
+/* SOS Button pulse animation */
+@keyframes sos-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(248, 59, 59, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(248, 59, 59, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(248, 59, 59, 0);
+  }
+}
+
+.sos-button {
+  animation: sos-pulse 2s infinite;
+}
+
+.sos-button-active {
+  animation: sos-pulse 0.8s infinite;
+}
+
+/* Route toggle styles */
+.route-toggle {
+  @apply relative flex items-center p-1 bg-dark-100 rounded-xl border border-white/10;
+}
+
+.route-toggle-option {
+  @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer z-10;
+}
+
+.route-toggle-option.active {
+  @apply text-white;
+}
+
+.route-toggle-option:not(.active) {
+  @apply text-gray-400 hover:text-gray-200;
+}
+
+/* Safety score indicator */
+.safety-indicator {
+  @apply w-3 h-3 rounded-full;
+}
+
+.safety-high {
+  @apply bg-safe-500 shadow-lg shadow-safe-500/50;
+}
+
+.safety-medium {
+  @apply bg-yellow-500 shadow-lg shadow-yellow-500/50;
+}
+
+.safety-low {
+  @apply bg-danger-500 shadow-lg shadow-danger-500/50;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply w-6 h-6 border-2 border-white/20 border-t-primary-500 rounded-full animate-spin;
+}
+
+/* Toast override */
+.toast-custom {
+  @apply bg-dark-100 border border-white/10 text-white rounded-xl;
+}

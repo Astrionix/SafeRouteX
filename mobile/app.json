@@ -1,0 +1,67 @@
+{
+    "expo": {
+        "name": "SafeRouteX",
+        "slug": "saferoutex",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "dark",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#0f172a"
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.saferoutex.app",
+            "config": {
+                "googleMapsApiKey": "YOUR_IOS_GOOGLE_MAPS_KEY"
+            },
+            "infoPlist": {
+                "NSLocationWhenInUseUsageDescription": "SafeRouteX needs your location to provide safe navigation routes",
+                "NSLocationAlwaysUsageDescription": "SafeRouteX needs your location for SOS tracking",
+                "UIBackgroundModes": [
+                    "location",
+                    "fetch"
+                ]
+            }
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#0f172a"
+            },
+            "package": "com.saferoute.app",
+            "permissions": [
+                "ACCESS_FINE_LOCATION",
+                "ACCESS_COARSE_LOCATION",
+                "ACCESS_BACKGROUND_LOCATION",
+                "VIBRATE"
+            ],
+            "config": {
+                "googleMaps": {
+                    "apiKey": "YOUR_ANDROID_GOOGLE_MAPS_KEY"
+                }
+            },
+            "googleServicesFile": "./google-services.json"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "plugins": [
+            "expo-location",
+            [
+                "expo-notifications",
+                {
+                    "icon": "./assets/notification-icon.png",
+                    "color": "#33a7ff"
+                }
+            ],
+            "expo-asset",
+            "expo-font"
+        ]
+    }
+}
