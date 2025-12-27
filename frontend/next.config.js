@@ -2,6 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     transpilePackages: ['mapbox-gl'],
+    output: 'export', // Required for Capacitor
 
     // Fix for undici private class fields
     webpack: (config, { isServer }) => {
@@ -25,19 +26,8 @@ const nextConfig = {
     },
 
     images: {
+        unoptimized: true, // Required for static export
         domains: ['firebasestorage.googleapis.com'],
-    },
-
-    async headers() {
-        return [
-            {
-                source: '/:path*',
-                headers: [
-                    { key: 'X-Frame-Options', value: 'DENY' },
-                    { key: 'X-Content-Type-Options', value: 'nosniff' },
-                ],
-            },
-        ];
     },
 };
 

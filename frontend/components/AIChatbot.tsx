@@ -98,7 +98,7 @@ What would you like to know?`,
             {/* Floating Button */}
             <motion.button
                 onClick={() => setIsOpen(true)}
-                className={`fixed bottom-28 right-6 z-40 w-14 h-14 rounded-full 
+                className={`fixed bottom-36 right-6 z-40 w-14 h-14 rounded-full 
           bg-gradient-to-br from-purple-500 to-indigo-600 text-white shadow-lg
           flex items-center justify-center hover:scale-110 transition-transform
           ${isOpen ? 'hidden' : ''}`}
@@ -143,8 +143,8 @@ What would you like to know?`,
                             {messages.map((msg) => (
                                 <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                     <div className={`max-w-[85%] p-3 rounded-2xl ${msg.role === 'user'
-                                            ? 'bg-primary-500 text-white rounded-br-sm'
-                                            : 'bg-dark-100 text-gray-200 rounded-bl-sm'
+                                        ? 'bg-primary-500 text-white rounded-br-sm'
+                                        : 'bg-dark-100 text-gray-200 rounded-bl-sm'
                                         }`}>
                                         <p className="text-sm whitespace-pre-line">{msg.content}</p>
                                     </div>

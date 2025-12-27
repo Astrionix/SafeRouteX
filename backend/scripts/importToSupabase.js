@@ -14,8 +14,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Supabase configuration
-const SUPABASE_URL = process.env.SUPABASE_URL || 'https://hvrcymiizmmmkkzfbxxvh.supabase.co';
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh2cmN5bWlpem1ta2t6ZmJ4eHZoIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NDc2NzQ3MywiZXhwIjoyMDgwMzQzNDczfQ.NQfSHWHtv1B3SSJBmsDIWDTqzhgl40mUcdQ03x2AltA';
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://vvdaknilpngfriainero.supabase.co';
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2ZGFrbmlscG5nZnJpYWluZXJvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NTA4MzA0NSwiZXhwIjoyMDgwNjU5MDQ1fQ.sLkiyEKJr1hXqsKtnYFN7CsyRES7oV8Gc0jR12ED9WE';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -54,7 +54,7 @@ async function importCCTV() {
             const props = feature.properties || {};
 
             return {
-                osm_id: props['@id'] || props.osm_id,
+                osm_id: String(props['@id'] || props.osm_id),
                 location: `SRID=4326;POINT(${lon} ${lat})`,
                 status: props.surveillance === 'outdoor' || props.surveillance === 'public' ? 'operational' : 'operational',
                 coverage_radius: 50,
@@ -123,7 +123,7 @@ async function importStreetlights() {
             else if (otherTags.includes('sodium')) wattage = 150;
 
             return {
-                osm_id: props.osm_id,
+                osm_id: String(props.osm_id),
                 location: `SRID=4326;POINT(${lon} ${lat})`,
                 status,
                 wattage

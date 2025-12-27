@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+// For Android Emulator, use 10.0.2.2 to access host machine localhost
+const API_URL = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? 'http://10.0.2.2:4000/api' : 'http://localhost:4000/api');
 
 const api = axios.create({
     baseURL: API_URL,

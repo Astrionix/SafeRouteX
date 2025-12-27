@@ -4,6 +4,17 @@
 -- Enable PostGIS extension
 CREATE EXTENSION IF NOT EXISTS postgis;
 
+-- ⚠️ FORCE CLEANUP: Drop tables to ensure columns are created correctly ⚠️
+DROP TABLE IF EXISTS public.sos_tracking CASCADE;
+DROP TABLE IF EXISTS public.sos_events CASCADE;
+DROP TABLE IF EXISTS public.user_reports CASCADE;
+DROP TABLE IF EXISTS public.crime_incidents CASCADE;
+DROP TABLE IF EXISTS public.streetlights CASCADE;
+DROP TABLE IF EXISTS public.cctv CASCADE;
+DROP TABLE IF EXISTS public.roads CASCADE;
+DROP TABLE IF EXISTS public.emergency_contacts CASCADE;
+-- DROP TABLE IF EXISTS public.user_profiles CASCADE; -- Optional: Keep profiles if you want to retain users
+
 -- Users table (extends Supabase auth.users)
 CREATE TABLE IF NOT EXISTS public.user_profiles (
     id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,

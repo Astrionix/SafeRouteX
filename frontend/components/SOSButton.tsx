@@ -111,7 +111,7 @@ export default function SOSButton() {
             <motion.button
                 onClick={handleSOSClick}
                 disabled={loading}
-                className={`fixed bottom-6 right-6 z-50 w-20 h-20 rounded-full flex items-center justify-center 
+                className={`fixed bottom-6 left-6 z-50 w-20 h-20 rounded-full flex items-center justify-center 
           font-bold text-white shadow-2xl transition-all duration-300
           ${isActive
                         ? 'bg-danger-600 sos-button-active shadow-glow-danger'

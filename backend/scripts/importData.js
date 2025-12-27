@@ -1,10 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import { Pool } from 'pg';
+import { fileURLToPath } from 'url';
+import 'dotenv/config';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Database connection
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL || 'postgresql://postgres:password@localhost:5432/saferoutex'
+    connectionString: process.env.DATABASE_URL || 'postgresql://postgres:password@localhost:5432/saferoutex',
+    ssl: process.env.DATABASE_URL && process.env.DATABASE_URL.includes('supabase') ? { rejectUnauthorized: false } : false
 });
 
 // Import CCTV data from GeoJSON

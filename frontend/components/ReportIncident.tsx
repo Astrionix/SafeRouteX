@@ -85,7 +85,7 @@ export default function ReportIncident() {
             {/* Trigger Button */}
             <button
                 onClick={() => setIsOpen(true)}
-                className="fixed bottom-6 left-6 z-40 px-4 py-3 bg-gradient-to-r from-amber-500 to-orange-500 
+                className="fixed bottom-6 left-32 z-40 px-4 py-3 bg-gradient-to-r from-amber-500 to-orange-500 
           text-white font-semibold rounded-xl shadow-lg hover:shadow-amber-500/25 
           transition-all duration-200 flex items-center gap-2 hover:scale-105"
             >
@@ -129,8 +129,8 @@ export default function ReportIncident() {
                                                 key={type.id}
                                                 onClick={() => setSelectedType(type.id)}
                                                 className={`p-3 rounded-xl text-left transition-all duration-200 border ${selectedType === type.id
-                                                        ? 'bg-primary-500/20 border-primary-500 text-white'
-                                                        : 'bg-dark-200/50 border-white/5 text-gray-300 hover:border-white/20'
+                                                    ? 'bg-primary-500/20 border-primary-500 text-white'
+                                                    : 'bg-dark-200/50 border-white/5 text-gray-300 hover:border-white/20'
                                                     }`}
                                             >
                                                 <span className="text-lg mr-2">{type.icon}</span>
@@ -147,8 +147,8 @@ export default function ReportIncident() {
                                         onClick={handleGetLocation}
                                         disabled={gettingLocation}
                                         className={`w-full p-3 rounded-xl border transition-all duration-200 flex items-center justify-center gap-2 ${location
-                                                ? 'bg-safe-500/20 border-safe-500 text-safe-400'
-                                                : 'bg-dark-200/50 border-white/10 text-gray-300 hover:border-white/20'
+                                            ? 'bg-safe-500/20 border-safe-500 text-safe-400'
+                                            : 'bg-dark-200/50 border-white/10 text-gray-300 hover:border-white/20'
                                             }`}
                                     >
                                         {gettingLocation ? (
